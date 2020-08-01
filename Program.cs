@@ -6,7 +6,7 @@ namespace tigscod
     {
         static void Main(string[] args)
        	{
-            Exercise7();
+            Exercise8();
 		}
 		static void Exercise1()
 		{
@@ -204,6 +204,10 @@ namespace tigscod
             var totalExpensePerYear = (cigarretesPackPerYear*cigarretesPrice);
 
             System.Console.WriteLine($"O valor total gasto em cigarros foi R$ {totalExpensePerYear}");
-        }
+        }static void Exercise8()
+		{
+					
+		
+		}
 	}
 }
