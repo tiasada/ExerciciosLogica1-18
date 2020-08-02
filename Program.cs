@@ -8,7 +8,7 @@ namespace tigscod
 		//# Exercicios "lógica de programação" 1-18
         static void Main(string[] args)
        	{
-            Exercise14();
+            Exercise18();
 		}
 		static void Exercise1()
 		{
@@ -445,6 +445,45 @@ namespace tigscod
 		//o usuário forneça o valor –1.
 
 		{
+			while(true)
+			{
+				var cont = 0;
+				System.Console.WriteLine("Escreva o número para ver sua Tabuada.");
+				var num = int.Parse(System.Console.ReadLine());
+				if(num <0)
+				{
+					break;
+				}	
+				else
+				{
+					while(cont<10)
+					{
+						cont++;
+						var result = num*cont;
+						System.Console.WriteLine($"{num}x{cont}={result}");
+					}
+				}
+				System.Console.WriteLine($"tabuada de {num} pronta.");
+
+			}
+			
+		}
+		static void Exercise18()
+		//18)As maçãs custam R$ 1,30 cada se forem compradas menos de uma dúzia, e R$ 1,00 se forem
+		//compradas pelo menos 12. Escreva um programa que leia o número de maçãs compradas, calcule e
+		//escreva o custo total da compra. 
+		{
+			System.Console.WriteLine("O preço da Maçã é de R$ 1,30 a unidade, apartir de 12 unidades é R$ 1,00.");
+			System.Console.WriteLine("Escreva quantas Maçãs você quer:");
+			var Numb = double.Parse(System.Console.ReadLine());
+			if(Numb<12)
+			{
+				System.Console.WriteLine($"você vai comprar {Numb} Maçãs, vai custar R${(Numb*1.30).ToString("0.00")}");		
+			}
+			else
+			{
+				System.Console.WriteLine($"você vai comprar {Numb} Maçãs, vai custar R${(Numb*1.00).ToString("0.00")}");		
+			}
 
 		}
 	}
