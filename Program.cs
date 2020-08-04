@@ -366,24 +366,27 @@ namespace tigscod
 		static void Exercise14()
 		//14)Ler três valores e colocá-los em ordem.
 		{
-			int counter = 0;
-            var list = new int[3];
- 
-            while (counter <= 2) 
-            {
-                Console.WriteLine($"Digite o {counter+1}º número");
-                list[counter] = Int32.Parse(Console.ReadLine());
-                counter++;
+             var arsA = new int[3];
+             for (int a = 0; a < arsA.Length; a++)
+           {
+                System.Console.WriteLine($"digite o um número:");
+                arsA[a] = int.Parse(System.Console.ReadLine());
             }
-
-            int[] newList = list.OrderBy(i => i).ToArray();
-            Console.WriteLine("\nOs numeros em ordem são:");
- 
-            foreach (int termo in newList) 
+            // colocando matrix A em ordem crescente
+            for (int i = 1; i < arsA.Length; i++)
             {
-                Console.WriteLine(termo);
+                //proteção para não passar do limite do array.(x < arsA.Length - 1;)
+                for (int x = 0; x < arsA.Length - 1; x++)
+                {
+                    if (arsA[x] > arsA[x + 1])
+                    {
+                        var temp = arsA[x+1]; 
+                        arsA[x+1] = arsA[x];
+                        arsA[x] = temp;
+                    }            
+                }
             }
-		}
+        }
 		static void Exercise15()
 		//15)Ler 10 números e imprimir quantos são múltiplos de 3 e quantos são múltiplos de 5.
 		{
