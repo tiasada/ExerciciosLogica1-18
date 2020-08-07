@@ -8,7 +8,7 @@ namespace tigscod
 		//# Exercicios "lógica de programação" 1-18
         static void Main(string[] args)
        	{
-            Exercise18();
+            Exercise16();
 		}
 		static void Exercise1()
 		{
@@ -19,108 +19,71 @@ namespace tigscod
             // c)Os números de 1 a 10 de forma crescente, mas apenas aqueles
             // que forem par.
 
-			var increment = 1;
+			var number = 1;
 
-			System.Console.WriteLine("crescente");
-			while (increment < 11)
+			System.Console.WriteLine("crescente:");
+			while (number < 11)
 			{
-				System.Console.WriteLine(increment);
-				increment++;
+				System.Console.WriteLine(number);
+				number++;
 			}
 
-			var decrement = 10;
-
-			System.Console.WriteLine("decrescente");
-			while (decrement > 0)
+			System.Console.WriteLine("decrescente:");
+			while (number > 0)
 			{
-				System.Console.WriteLine(decrement);
-				decrement--;
+				System.Console.WriteLine(number);
+				number--;
 			}
 
-			var counter = 2;
-			System.Console.WriteLine("apenas os pares");
-			while (counter < 11)
+			number = 2;
+			System.Console.WriteLine("os pares crecente:");
+			while (number < 11)
 			{
-				if (counter % 2 == 0)
+				if (number % 2 == 0)
 				{
-					System.Console.WriteLine(counter);
+					System.Console.WriteLine(number);
 				}
-				counter++;
+				number++;
 			}
 		}
 
 		static void Exercise2()
 		// 2)Imprimir a soma dos números inteiros de 1 a 100.
 		{
-			var counter = 1;
-			var sum = 0;
-
-			while (counter < 101)
+			(int counter, int sum) numb = (1, 0);
+			while (numb.counter < 101)
 			{
-				sum += counter;
-				counter++;
+				numb.sum += numb.counter; 	numb.counter++;
 			}
-
-			System.Console.WriteLine("a soma dos números inteiros entre 1 e 100 é");
-			System.Console.WriteLine(sum);
+			System.Console.WriteLine($"a soma dos números inteiros entre 1 e 100 é {numb.sum}");
 		}
 
 		static void Exercise3()
 		//3)Imprimir todo os números ímpares menores de 200.
 		{
-			var counter = 1;
-
-			while (counter < 200)
+			for (int i = 1; i < 200; i+=2)
 			{
-				if (counter % 2 == 1)
-				{
-					System.Console.WriteLine(counter);
-				}
-				counter++;
+				System.Console.WriteLine(i);
 			}
 		}
 
 		static void Exercise4()
-//4)Calcular a média de idade de uma turma qualquer. O algoritmo deve parar quando 
-//for digitada a idade igual a zero.
-
-//  Console.WriteLine("calculando a media de idade da turma");
-//     var totalAge = 0.0;
-//     var contador = 0.0;
-//     var mediaAge = 0.0;
-//     var userage = 1.0;
-
-//     while (userage != 0.0)
-//     {
-//         Console.WriteLine("Qual sua idade ?");
-//         userage = double.Parse(Console.ReadLine());
-//         totalAge = totalAge + userage;
-//         Console.WriteLine($"você tem {userage} anos.");
-//        contador++;
-
-//     }
-
-//     mediaAge = totalAge / contador -1;
-//     Console.WriteLine($"A média de idade é {mediaAge}.");
+		//4)Calcular a média de idade de uma turma qualquer. O algoritmo deve parar quando 
+		//for digitada a idade igual a zero.
 		{
 			var sum = 0.0;
 			var counter = 0.0;
-
 			while (true)
 			{
 				System.Console.WriteLine("Digite uma idade");
 				var result = Console.ReadLine();
-
 				if (result == "0")
 				{
 					break;
 				}
-				
-				counter++;
-				
+				counter++;	
 				sum += Int32.Parse(result);
 			}
-
 			System.Console.WriteLine("A média da turma é:");
 			System.Console.WriteLine((sum / counter).ToString("0.00"));
 		}
@@ -131,22 +94,16 @@ namespace tigscod
 
 		{
 			var womenBetween18And35 = 0;
-
-			var counter = 0;
-			while (counter < 5)
+			for (int i = 0; i < 5; i++)
 			{
-				System.Console.WriteLine("Digite o nome de uma mulher");
+				System.Console.WriteLine("Digite o nome de uma mulher e sua idade");
 				Console.ReadLine();
-				System.Console.WriteLine("Digite sua idade");
 				var age = Int32.Parse(Console.ReadLine());
-
 				if (age > 17 && age < 36)
 				{
 					womenBetween18And35++;
 				}
-				counter++;
 			}
-
 			System.Console.WriteLine("A porcentagem de mulheres entre 18 e 35");
 			System.Console.WriteLine(womenBetween18And35 * 100 / 5);
 		}
@@ -220,20 +177,12 @@ namespace tigscod
 		{
 			System.Console.WriteLine("7. Calcular a quantidade de dinheiro gasta por um fumante.");
             System.Console.WriteLine("Há quantos anos esta pessoa fuma?");
-            var years = System.Console.ReadLine();
-            var smokingYears = double.Parse(years);
+            var years = double.Parse(System.Console.ReadLine());
             System.Console.WriteLine("Quantos cigarros ela fuma por dia?");
-            var cigarretes = System.Console.ReadLine();
-            var cigarretesPerDay = double.Parse(cigarretes);
+            var cigarretesPerDay = double.Parse(System.Console.ReadLine());
             System.Console.WriteLine("Qual o valor da carteira de cigarros?");
-            var price = System.Console.ReadLine();
-            var cigarretesPrice = double.Parse(price);
-
-            var cigarretesPerYear = (cigarretesPerDay*smokingYears*365/20);
-            var cigarretesPackPerYear = Math.Ceiling(cigarretesPerYear);
-            var totalExpensePerYear = (cigarretesPackPerYear*cigarretesPrice);
-
-            System.Console.WriteLine($"O valor total gasto em cigarros foi R$ {totalExpensePerYear}");
+            var price = double.Parse(System.Console.ReadLine());
+            System.Console.WriteLine($"O valor total gasto em cigarros foi R$ {cigarretesPerDay*years*365/20*price}");
         }
 		static void Exercise8()
 		//8)Ler dois números inteiros, X e Y, e apresentar mensagem informando se o X é múltiplo de Y.
@@ -244,7 +193,6 @@ namespace tigscod
 			var x = int.Parse(System.Console.ReadLine());
             System.Console.WriteLine("digite o segundo número");
 			var y = int.Parse(System.Console.ReadLine());
-			 
 			 if(x % y ==0)
 			 {
 				 System.Console.WriteLine($"{x} é multiplo de {y}");
@@ -259,20 +207,20 @@ namespace tigscod
 		//9)Fazer um algoritmo para ler 03 números reais do teclado e verificar se 
 		//o primeiro é maior que a soma dos outros dois.
 		{
+			var numb = new int[3];
 			System.Console.WriteLine("Excreva 3 números para saber se o primeiro é maior que a soma dos utlimos dois.");
-			System.Console.WriteLine("digite o primeiro número");
-			var x = int.Parse(System.Console.ReadLine());
-            System.Console.WriteLine("digite o segundo número");
-			var y = int.Parse(System.Console.ReadLine());
-			System.Console.WriteLine("digite o terceiro número");
-			var z = int.Parse(System.Console.ReadLine());
-			if(x>y+z)
+			for (int i = 0; i < 3; i++)
 			{
-				System.Console.WriteLine($"{x} é maior que a soma de {y} e {z}.");
+				System.Console.WriteLine("digite o primeiro número");
+				numb[i] = int.Parse(System.Console.ReadLine());
+			}
+			if(numb[0]>numb[1]+numb[2])
+			{
+				System.Console.WriteLine($"{numb[0]} é maior que a soma de {numb[1]} e {numb[2]}.");
 			}
 			else
 			{
-				System.Console.WriteLine($"{x} não é maior que a soma de {y} e {z}.");
+				System.Console.WriteLine($"{numb[0]} não é maior que a soma de {numb[1]} e {numb[2]}.");
 			}
 		}
 		static void Exercise10()
@@ -307,7 +255,6 @@ namespace tigscod
 			var x = int.Parse(System.Console.ReadLine());
             System.Console.WriteLine("digite o segundo número");
 			var y = int.Parse(System.Console.ReadLine());
-
 			if(y != 0)
 			{
 				System.Console.WriteLine($"{x/y}");
@@ -321,40 +268,32 @@ namespace tigscod
 		// 12. Ler 4 números inteiros e calcular a soma dos que forem pares e ímpares.
 		{
 		System.Console.WriteLine("Escreva 4 números inteiros para e calcular a soma dos que forem pares e ímpares.");
-		int imp = 0;
-		int par = 0;
-		int cont = 0;
-
-		while (cont < 4)
+		int even = 0; int odd = 0;
+		for (int i = 0; i < 4; i++)
 		{
-		System.Console.WriteLine("Insira um número inteiro:");
-		var num = System.Console.ReadLine();
-		int number = Int32.Parse(num);
-		cont++;
-
-		if (number%2 == 0)
-		{
-			par += number;
+			System.Console.WriteLine("Insira um número inteiro:");
+			int number = Int32.Parse(System.Console.ReadLine());
+			if (number%2 == 0)
+			{
+				even += number;
+			}
+			else if (number%2 != 0)
+			{
+				odd += number;
+			}
 		}
-		else if (number%2 != 0)
-		{
-			imp += number;
-		}
-		}
-		System.Console.WriteLine($"A soma dos números pares é {par}");
-		System.Console.WriteLine($"A soma dos números ímpares é {imp}");
+		System.Console.WriteLine($"A soma dos números pares é {even}");
+		System.Console.WriteLine($"A soma dos números ímpares é {odd}");
 		}
 		static void Exercise13()
 		//13)Ler 10 valores e determinar o maior dentre eles.
 		{
-			var cont = 0;
+			System.Console.WriteLine("Descubra qual o maior número dentre 10.");
 			var higher = 0;
-			while(cont <10)
+			for (int i = 0; i < 10; i++)
 			{
-				System.Console.WriteLine("Descubra qual o maior número dentre 10.");
 				System.Console.WriteLine("digite um número.");
 				var num = int.Parse(System.Console.ReadLine());
-				cont++;
 				if(num>higher)
 				{
 					higher=num;
@@ -366,8 +305,8 @@ namespace tigscod
 		static void Exercise14()
 		//14)Ler três valores e colocá-los em ordem.
 		{
-             var arsA = new int[3];
-             for (int a = 0; a < arsA.Length; a++)
+			var arsA = new int[3];
+			for (int a = 0; a < arsA.Length; a++)
            {
                 System.Console.WriteLine($"digite o um número:");
                 arsA[a] = int.Parse(System.Console.ReadLine());
@@ -390,11 +329,10 @@ namespace tigscod
 		static void Exercise15()
 		//15)Ler 10 números e imprimir quantos são múltiplos de 3 e quantos são múltiplos de 5.
 		{
-			var cont =0;
 			var mlt3 =0;
 			var mlt5 =0;
-			System.Console.WriteLine("dentre 10 numeros quantos são multiplos de 3 e quantos de 5");
-			while(cont<10)
+			System.Console.WriteLine("dentre 10 números quantos são multiplos de 3 e quantos de 5");
+			for (int i = 0; i < 10; i++)
 			{
 				System.Console.WriteLine("digite um número");
 				var num = int.Parse(Console.ReadLine());
@@ -406,7 +344,6 @@ namespace tigscod
 				{
 					mlt5++;
 				}
-				cont++;
 			}
 			System.Console.WriteLine($"Dentre os 10 valores {mlt3} são multiplos de 3 e {mlt5} de 5");
 		}
@@ -420,28 +357,24 @@ namespace tigscod
 
 		{
 			var salr = 0.0;
-			var salrLqd = 0.0;
+			var tax = 0.0;
 			System.Console.WriteLine("digite o valor do seu salário:");
 			salr = double.Parse (System.Console.ReadLine());
-			if(salr <= 600.00)
+			if(salr >= 600.00 && salr <= 1200.00)
 			{
-				System.Console.WriteLine($"Seu salário líquido é R${salr.ToString("0.00")}");
-			}
-			else if(salr >= 600.00 && salr <= 1200.00)
-			{
-				salrLqd = salr-((salr*20)/100);
-				System.Console.WriteLine($"Seu salário líquido é R${salrLqd.ToString("0.00")}");
+				tax = 20;
 			}
 			else if(salr >= 1200.00 && salr <= 2000.00)
 			{
-				salrLqd = salr-((salr*25) /100);
-				System.Console.WriteLine($"Seu salário líquido é R${salrLqd.ToString("0.00")}");
+				tax = 25;
 			}
-			else
+			else if(salr >= 2000.00)
 			{
-				salrLqd = salr-((salr*30)/100);
-				System.Console.WriteLine($"Seu salário líquido é R${salrLqd.ToString("0.00")}");
+				tax = 30;
 			}
+			var discount =salr*tax/100;
+
+			System.Console.WriteLine($"Seu salário líquido é R${(salr-discount).ToString("0.00")}");
 		}
 		static void Exercise17()
 		//17)Imprimir a tabuada de qualquer número fornecido pelo usuário até que 
@@ -450,23 +383,21 @@ namespace tigscod
 		{
 			while(true)
 			{
-				var cont = 0;
 				System.Console.WriteLine("Escreva o número para ver sua Tabuada.");
-				var num = int.Parse(System.Console.ReadLine());
-				if(num <0)
+				var input = int.Parse(System.Console.ReadLine());
+				if(input <0)
 				{
 					break;
 				}	
 				else
 				{
-					while(cont<10)
+					for (int i = 1; i < 10; i++)
 					{
-						cont++;
-						var result = num*cont;
-						System.Console.WriteLine($"{num}x{cont}={result}");
+						var result = input*i;
+						System.Console.WriteLine($"{input}x{i}={result}");
 					}
 				}
-				System.Console.WriteLine($"tabuada de {num} pronta.");
+				System.Console.WriteLine($"tabuada de {input} pronta.");
 
 			}
 			
