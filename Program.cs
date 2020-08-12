@@ -289,7 +289,7 @@ namespace tigscod
 		//13)Ler 10 valores e determinar o maior dentre eles.
 		{
 			System.Console.WriteLine("Descubra qual o maior número dentre 10.");
-			var higher = 0;
+			var higher = int.MinValue;
 			for (int i = 0; i < 10; i++)
 			{
 				System.Console.WriteLine("digite um número.");
