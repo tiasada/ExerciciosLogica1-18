@@ -356,25 +356,27 @@ namespace tigscod
 		//Maior que R$ 2.000,00 - 30% desconto
 
 		{
-			var salr = 0.0;
-			var tax = 0.0;
+			var salr = 0.0; var tax = 0.0;
 			System.Console.WriteLine("digite o valor do seu salário:");
 			salr = double.Parse (System.Console.ReadLine());
-			if(salr >= 600.00 && salr <= 1200.00)
+			if(salr <= 600.00)
 			{
-				tax = 20;
+				System.Console.WriteLine($"isento :{salr}");
+				return;
 			}
-			else if(salr >= 1200.00 && salr <= 2000.00)
+			else if(salr <= 1200.00)
 			{
-				tax = 25;
+				tax = 0.8;
 			}
-			else if(salr >= 2000.00)
+			else if(salr <= 2000.00)
 			{
-				tax = 30;
+				tax = 0.75;
 			}
-			var discount =salr*tax/100;
-
-			System.Console.WriteLine($"Seu salário líquido é R${(salr-discount).ToString("0.00")}");
+			else
+			{
+				tax = 0.7;
+			}
+			System.Console.WriteLine($"Seu salário líquido é R${(salr*tax).ToString("0.00")}");
 		}
 		static void Exercise17()
 		//17)Imprimir a tabuada de qualquer número fornecido pelo usuário até que 
